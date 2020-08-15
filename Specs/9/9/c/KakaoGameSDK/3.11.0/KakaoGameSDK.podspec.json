@@ -6,29 +6,62 @@
   "license": "Apache",
   "authors": "Kakaogames Corp",
   "source": {
-    "http": "https://kakao-sdk-release.s3.amazonaws.com/KakaoGameSDK/iOS/KakaoGameSDK_iOS_3.11.0_Publishing.zip"
+    "http": "https://kakao-sdk-release.s3.amazonaws.com/KakaoGameSDK/iOS/KakaoGameSDK_iOS_3.10.10_Publishing_forUnity.zip"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "9.0"
   },
   "requires_arc": true,
   "static_framework": true,
-  "vendored_frameworks": [
-    "KakaoGameFramework/KakaoGame.framework",
-    "KakaoGameFramework/KakaoGameFacebook.framework",
-    "KakaoGameFramework/KakaoGameGoogle.framework",
-    "KakaoGameFramework/KakaoGameKakao.framework",
-    "IDPFramework/Facebook/FBSDKCoreKit.framework",
-    "IDPFramework/Facebook/FBSDKLoginKit.framework",
-    "IDPFramework/Facebook/FBSDKShareKit.framework",
-    "IDPFramework/Google/AppAuth.framework",
-    "IDPFramework/Google/GoogleSignIn.framework",
-    "IDPFramework/Google/GTMAppAuth.framework",
-    "IDPFramework/Google/GTMSessionFetcher.framework",
-    "IDPFramework/Kakao/KakaoOpenSDK.framework"
-  ],
-  "resources": [
-    "KakaoGameFramework/KakaoGameResources.bundle",
-    "IDPFramework/Facebook/FacebookSDKStrings.bundle"
+  "dependencies": {
+    "GoogleSignIn": [
+      "5.0.0"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "KakaoGame",
+      "vendored_frameworks": [
+        "IDPFramework/Kakao/KakaoOpenSDK.framework",
+        "KakaoGameFramework/KakaoGame.framework"
+      ],
+      "resources": "KakaoGameFramework/KakaoGameResources.bundle"
+    },
+    {
+      "name": "KakaoGameFacebook",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ],
+        "FBSDKCoreKit": [
+          "5.5.0"
+        ],
+        "FBSDKLoginKit": [
+          "5.5.0"
+        ],
+        "FBSDKShareKit": [
+          "5.5.0"
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameFacebook.framework"
+    },
+    {
+      "name": "KakaoGameGoogle",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameGoogle.framework"
+    },
+    {
+      "name": "KakaoGameGoogle",
+      "dependencies": {
+        "KakaoGameSDK/KakaoGame": [
+
+        ]
+      },
+      "vendored_frameworks": "KakaoGameFramework/KakaoGameKakao.framework"
+    }
   ]
 }

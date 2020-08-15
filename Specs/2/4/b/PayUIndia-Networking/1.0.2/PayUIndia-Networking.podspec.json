@@ -18,7 +18,7 @@
   "vendored_frameworks": "Dependencies/PayUNetworking.framework",
   "dependencies": {
     "PayUIndia-Logger": [
-      "1.0.0"
+      "1.0.2"
     ]
   }
 }

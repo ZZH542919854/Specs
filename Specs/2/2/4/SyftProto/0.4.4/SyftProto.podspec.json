@@ -18,7 +18,7 @@
   "static_framework": true,
   "source": {
     "git": "https://github.com/OpenMined/syft-proto.git",
-    "tag": "v0.4.4"
+    "commit": "b4fe17a"
   },
   "source_files": "Swift/**/*.swift",
   "dependencies": {
